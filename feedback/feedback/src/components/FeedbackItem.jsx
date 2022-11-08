@@ -11,7 +11,7 @@ function FeedbackItem({item, handleDelete}) {
         <div className="num-display">
             {item.rating}
         </div>
-        <button className="close">
+        <button onClick={} className="close">
             <FaTimes color='purple' />
         </button>
         <div className="text-display">
