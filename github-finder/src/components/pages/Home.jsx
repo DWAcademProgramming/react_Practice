@@ -1,9 +1,13 @@
 import React, {useEffect, useState } from 'react'
 import UserResults from '../users/UserResults'
+import UserSearch from '../users/UserSearch'
 
 function Home() {
   return(
-    <UserResults /> 
+    <>
+      <UserResults />
+      <UserSearch /> 
+    </>
   )
 }
 
