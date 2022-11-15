@@ -43,7 +43,7 @@ function SignUp() {
       delete formDataCopy.password
       formDataCopy.timestamp = serverTimestamp()
 
-      await setDoc(doc(dn, 'users', user.uuid), formDataCopy)
+      await setDoc(doc(db, 'users', user.uuid), formDataCopy)
 
       navigate('/')
     } catch (error) {
