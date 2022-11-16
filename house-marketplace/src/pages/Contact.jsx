@@ -51,7 +51,7 @@ function Contact() {
                             onChange={onChange}
                         ></textarea>
                     </div>
-                    <a href={`mailto:${landlord.email}?Subject=${searchParams.get('listingName')}bod=${message}`}>
+                    <a href={`mailto:${landlord.email}?Subject=${searchParams.get('listingName')}body=${message}`}>
                         <button type='button' className="primaryButton">
                             Send Message
                         </button>
