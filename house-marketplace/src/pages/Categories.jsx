@@ -12,7 +12,7 @@ import {
 import {db} from '../firebase.config'
 import {toast} from 'react-toastify'
 import Spinner from '../components/Spinner'
-import { async } from '@firebase/util'
+import ListingItem from '../components/ListingItem'
 
 function Categories() {
     const [listings, setListings] = useState(null)
@@ -24,19 +24,19 @@ function Categories() {
         const fetchListings = async() =>{
             try {
                 //Get reference
-                const listingRef = collection(db, 'listings')
+                const listingsRef = collection(db, 'listings')
 
-                //Create a query
-                const q = query(
-                    listingRef, 
-                    where('type', '==', params.categoryName), 
-                    orderBy('timestamp', 'desc'), 
-                    limit(10)
-                )
+                 // Create a query
+                    const q = query(
+                        listingsRef,
+                        where('type', '==', params.categoryName),
+                        orderBy('timestamp', 'desc'),
+                        limit(10)
+                    )
                 //Execute query
                 const querySnap = await getDocs(q)
 
-                let listings = []
+                const listings = []
 
                 querySnap.forEach((doc) =>{
                     console.log(doc.data())
@@ -48,9 +48,38 @@ function Categories() {
                 toast.error('Could not fetch listings')
             }
         }
-    }, [])
+    }, [params.categoryName])
   return (
-    <h1>Category</h1>
+    <div className="category">
+        <header>
+            <p className="pageHeader">
+                {params.categoryName === 'rent'
+                    ? 'Places for rent'
+                    : 'Places for sale'
+                }
+            </p>
+        </header>
+
+        {loading ? (
+            <Spinner />
+        ) : listings && listings.length > 0 ? (
+            <>
+                <main>
+                    <ul className="categoryListings">
+                        {listings.map((listing) =>(
+                            <ListingItem 
+                                listing={listing.data}
+                                id={listing.id}
+                                key={listing.id}
+                            />
+                        ))}
+                    </ul>
+                </main>
+            </>
+        ) : (
+            <p>No listings for {params.categoryName}</p>
+        )}
+    </div>
   )
 }
 
