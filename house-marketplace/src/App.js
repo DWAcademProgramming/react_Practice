@@ -13,6 +13,7 @@ import SignUp from './pages/SignUp'
 import CreateListings from './pages/CreateListings'
 import Listing from './pages/Listing'
 import Contact from './pages/Contact'
+import EditListing from './pages/EditListing'
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/forgot-password' element={<ForgotPassword />} />
           <Route path='/createlisting' element={<CreateListings />} />
+          <Route path='/editlisting/:listingId' element={<EditListing />} />
           <Route path='/category/:categoryName/:listingId' element={<Listing />} />
           <Route path='/contact/:landlordId' element={<Contact />} />
         </Routes>
