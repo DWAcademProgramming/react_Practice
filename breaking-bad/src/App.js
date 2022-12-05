@@ -1,4 +1,4 @@
-import {useEffect, useState} from 'react'
+import {useEffect, useState, useRef} from 'react'
 import axios from 'axios';
 import Header from './components/ui/Header'
 import CharacterGrid from './components/characters/CharacterGrid';
