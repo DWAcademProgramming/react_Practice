@@ -1,4 +1,4 @@
-import {useEffect, useState, useRef} from 'react'
+import {useEffect, useState, } from 'react'
 import axios from 'axios';
 import Header from './components/ui/Header'
 import CharacterGrid from './components/characters/CharacterGrid';
@@ -12,7 +12,7 @@ const App = () => {
 
     useEffect(() =>{
         const fetchItems = async () =>{
-            const result = await axios(`https://breakingbadapi.com/api/characters?name=${query}`)
+            const result = await axios(`https://anapioficeandfire.com/api/characters=${query}`)
 
             console.log(result)
             setItems(result.data)

@@ -24,7 +24,7 @@ function App() {
           <Route path='/offers' element={<Offers />} />
           <Route path='/category/:categoryName' element={<Categories />} />
           <Route path='/profile' element={<PrivateRoutes />}>
-            <Route path='/profile' element={<Profile />} />
+          <Route path='/profile' element={<Profile />} />
           </Route>
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
